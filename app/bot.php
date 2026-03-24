@@ -1676,7 +1676,7 @@ class Bot
                 $this->time = time();
                 $current    = file_get_contents('/version');
                 $b          = exec('git -C / rev-parse --abbrev-ref HEAD');
-                $last       = file_get_contents("https://github.com/remzoospb/vpnbot/$b/version");
+                $last       = file_get_contents("https://raw.githubusercontent.com/remzoospb/vpnbot/$b/version");
                 if (!empty($last) && $last != $this->last && $last != $current) {
                     $this->last = $last;
                     $diff       = array_slice(explode("\n", $last), 0, count(explode("\n", $last)) - count(explode("\n", $current)));
@@ -1688,7 +1688,7 @@ class Bot
                                 [
                                     [
                                         'text'    => 'changelog',
-                                        'web_app' => ['url' => "https://github.com/remzoospb/vpnbot/$b/version"],
+                                        'web_app' => ['url' => "https://raw.githubusercontent.com/remzoospb/vpnbot/$b/version"],
                                     ],
                                     [
                                         'text'          => $this->i18n('update bot'),
@@ -4999,7 +4999,7 @@ DNS-over-HTTPS with IP:
             array_unshift($data, [
                 [
                     'text'    => 'changelog',
-                    'web_app' => ['url' => "https://github.com/remzoospb/vpnbot/$b/version"],
+                    'web_app' => ['url' => "https://raw.githubusercontent.com/remzoospb/vpnbot/$b/version"],
                 ],
                 [
                     'text'          => $this->i18n('update bot'),
@@ -8503,7 +8503,7 @@ DNS-over-HTTPS with IP:
                 ],
                 [
                     'text'    => $this->i18n('changelog'),
-                    'web_app' => ['url' => "https://github.com/remzoospb/vpnbot/$b/version"],
+                    'web_app' => ['url' => "https://raw.githubusercontent.com/remzoospb/vpnbot/$b/version"],
                 ],
             ],
             [
